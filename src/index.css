@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Passions+Conflict&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────
+   GOOGLE FONTS already loaded via index.html
+   ───────────────────────────────────────── */
+
+/* ─── CSS VARIABLES ─── */
+:root {
+  --gold:       #FFB700;
+  --gold-light: #FFD000;
+  --gold-dark:  #FF8800;
+  --bg:         #0a0a08;
+  --bg2:        #111109;
+  --text:       #e8dcc8;
+  --text-muted: #8a7d65;
+  
+}
+
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'EB Garamond', serif;
+  overflow-x: hidden;
+}
+
+
+/* fonts */
+
+.passions {
+  font-family: "Passions Conflict", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
+/* ─── KEYFRAMES ─── */
+@keyframes slowGlow {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50% { opacity: 0.25; transform: scale(1.1); }
+}
+
+.animate-slowGlow {
+  animation: slowGlow 6s ease-in-out infinite;
+}
+
+.star {
+  will-change: opacity, transform;
+}
+
+
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50%       { opacity: 0.9; transform: scale(1.6); }
+}
+
+@keyframes pulseGold {
+  0%, 100% { opacity: 0.5; }
+  50%       { opacity: 1; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes musicNote {
+  0%   { opacity: 0; transform: translateY(0) scale(0.8); }
+  50%  { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-30px) scale(1.2); }
+}
+
+@keyframes floatUp {
+  0%   { opacity: 0; transform: translateY(6px); }
+  50%  { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-24px); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(255,183,0,0.15), 0 0 40px rgba(255,183,0,0.05); }
+  50%       { box-shadow: 0 0 40px rgba(255,183,0,0.35), 0 0 80px rgba(255,183,0,0.15); }
+}
+
+@keyframes borderGlow {
+  0%, 100% { border-color: rgba(255,183,0,0.2); }
+  50%       { border-color: rgba(255,183,0,0.5); }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(20px) scale(0.9); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes dotPulse {
+  0%, 100% { transform: scale(1);   box-shadow: 0 0 8px rgba(255,183,0,0.4); }
+  50%       { transform: scale(1.4); box-shadow: 0 0 20px rgba(255,183,0,0.8); }
+}
+
+@keyframes scratchReveal {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ─── ANIMATION CLASSES ─── */
+.animate-twinkle      { animation: twinkle 3s ease-in-out infinite; }
+.animate-pulseGold    { animation: pulseGold 2s ease-in-out infinite; }
+.animate-fadeUp       { animation: fadeUp 1s ease forwards; }
+.animate-fadeIn       { animation: fadeIn 0.8s ease forwards; }
+.animate-shimmer      { animation: shimmer 3s linear infinite; }
+.animate-spin-slow    { animation: spin 8s linear infinite; }
+.animate-musicNote    { animation: musicNote 2s ease-in-out infinite; }
+.animate-floatUp      { animation: floatUp 2s ease-in-out infinite; }
+.animate-glow         { animation: glow 3s ease-in-out infinite; }
+.animate-borderGlow   { animation: borderGlow 3s ease-in-out infinite; }
+.animate-countUp      { animation: countUp 0.6s ease forwards; }
+.animate-dotPulse     { animation: dotPulse 2s ease-in-out infinite; }
+.animate-scratchReveal{ animation: scratchReveal 0.6s ease forwards; }
+
+/* ─── STAGGER DELAYS ─── */
+.delay-100  { animation-delay: 100ms; }
+.delay-200  { animation-delay: 200ms; }
+.delay-300  { animation-delay: 300ms; }
+.delay-400  { animation-delay: 400ms; }
+.delay-500  { animation-delay: 500ms; }
+.delay-600  { animation-delay: 600ms; }
+.delay-700  { animation-delay: 700ms; }
+.delay-800  { animation-delay: 800ms; }
+.delay-1000 { animation-delay: 1000ms; }
+.delay-1200 { animation-delay: 1200ms; }
+.delay-1400 { animation-delay: 1400ms; }
+
+/* ─── SCRATCH CANVAS ─── */
+.scratch-wrap {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: crosshair;
+  border: 1px solid rgba(255,183,0,0.25);
+  box-shadow: 0 0 50px rgba(255,183,0,0.12);
+  animation: glow 3s ease-in-out infinite;
+}
+
+/* ─── GOLD GRADIENT TEXT ─── */
+.gold-text {
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light), var(--gold));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+
+/* ─── GOLD BUTTON ─── */
+.gold-btn {
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+  color: var(--bg);
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 12px 32px;
+  border-radius: 4px;
+  display: inline-block;
+  text-decoration: none;
+  transition: all 0.3s;
+  box-shadow: 0 4px 24px rgba(255,183,0,0.25);
+}
+
+.gold-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 36px rgba(255,183,0,0.45);
+}
+
+/* ─── ORNAMENT ─── */
+.ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 4px;
+  opacity: 0.6;
+  margin: 18px auto;
+}
+
+.ornament::before,
+.ornament::after {
+  content: '';
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold));
+}
+
+.ornament::after {
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: rgba(255,183,0,0.3); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,183,0,0.5); }
+
+/* ─── AOS OVERRIDES for dark theme ─── */
+[data-aos] { pointer-events: none; }
+[data-aos].aos-animate { pointer-events: auto; }
+
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes leafFade {
+  to {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+}
+
+.animate-draw {
+  animation: draw 2s ease forwards;
+}
+
+.animate-leaf1 {
+  transform: scale(0.5);
+  animation: leafFade 1s ease forwards;
+  animation-delay: 1.2s;
+}
+
+.animate-leaf2 {
+  transform: scale(0.5);
+  animation: leafFade 1s ease forwards;
+  animation-delay: 1.6s;
+}
