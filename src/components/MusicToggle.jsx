@@ -1,8 +1,10 @@
 import { useState, useRef, useEffect } from 'react'
 import { FiMusic, FiPause } from 'react-icons/fi'
 import { AiOutlineLoading3Quarters } from 'react-icons/ai'
+import song from "./assets/yedhedho_pennae.mp3";
 
-const MUSIC_URL = './src/assets/yedhedho_pennae.mp3'
+const MUSIC_URL = song;
+
 
 export default function MusicToggle() {
   const [playing, setPlaying] = useState(false)
